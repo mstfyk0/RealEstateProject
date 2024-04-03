@@ -1,13 +1,21 @@
 ﻿
 namespace Entities.Models;
-public class Product
+public class Product : AuditableBaseEntity
 {
-        public int ProductId { get; set; }
-        public String? ProductName { get; set; } = String.Empty;
-        public decimal Price { get; set; }
-        public String? Summary { get; set; } =String.Empty;
-        public String? ImageUrl { get; set; } =String.Empty;
-        public int? CategoryId { get; set; }
-        public Category? Category { get; set; }
-        public bool ShowCase { get; set; }
+    public short propertyTypeId { get; set; }
+    public short furnitureConditionId { get; set; }
+    public short numberOfRoomsId { get; set; }
+    public short floorLevelId { get; set; }
+    public short buildingAgeId { get; set; }
+    public string title { get; set; }
+    public string description { get; set; }
+    public decimal price { get; set; }
+    public int totalSquareFootage { get; set; }
+    public ProductFeatureGroup propertyType { get; set; }
+    public ProductFeatureGroup furnitureCondition { get; set; }
+    public ProductFeatureGroup numberOfRooms { get; set; }
+    public ProductFeatureGroup floorLevel { get; set; }
+    public ProductFeatureGroup buildingAge { get; set; }
+    public String? ImageUrl { get; set; } = String.Empty;
+
 }

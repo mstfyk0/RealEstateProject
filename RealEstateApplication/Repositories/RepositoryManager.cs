@@ -1,4 +1,4 @@
-using Repositories.Contracts;
+using Repositories.Contracts
 
 namespace Repositories
 {
