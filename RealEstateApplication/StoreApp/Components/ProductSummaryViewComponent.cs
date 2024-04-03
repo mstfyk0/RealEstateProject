@@ -1,8 +1,7 @@
+using Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Repositories;
-using Services.Contracts;
 
-namespace StoreApp.Components
+namespace Components
 {
     public class ProductSummaryViewComponent : ViewComponent
     {

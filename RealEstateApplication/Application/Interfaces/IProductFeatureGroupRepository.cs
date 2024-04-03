@@ -1,7 +1,6 @@
-using Entities;
-using Entities.Models;
+using Domain.Models;
 
-namespace Repositories.Contracts
+namespace Application.Interfaces
 {
     public interface IProductFeatureGroupRepository : IRepositoryBase<ProductFeatureGroup>
     {

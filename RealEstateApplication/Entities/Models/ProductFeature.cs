@@ -1,12 +1,10 @@
-﻿namespace Entities.Models
+﻿namespace Domain.Models
 {
-    public class ProductFeatureGroup
+    public class ProductFeature
     {
-
         public short id { get; set; }
         public string? value { get; set; }
         public short productFeatureGroupId { get; set; }
-
         public ProductFeatureGroup productFeatureGroup { get; set; }
         public ICollection<Product> propertyType { get; set; }
         public ICollection<Product> furnitureCondition { get; set; }

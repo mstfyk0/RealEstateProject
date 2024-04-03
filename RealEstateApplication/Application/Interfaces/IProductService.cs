@@ -1,15 +1,13 @@
-using Entities.Dtos;
-using Entities.Models;
-using Entities.RequestParameters;
+using Domain.Models;
+using Domain.RequestParameters;
 
-namespace Services.Contracts
+
+namespace Application.Interfaces
 {
     public interface IProductService
     {
         IEnumerable<Product> GetAllProduct(bool trackChnages);
-        IEnumerable<Product> GetLastestProduct( int n ,bool trackChnages);
         IEnumerable<Product> GetAllProductsWithDetails (ProductRequestParameters p);
-        IEnumerable<Product> GetShowCaseProducts(bool trackChange);
         Product? GetOneProduct(int id, bool trackChnages);
     }
 }

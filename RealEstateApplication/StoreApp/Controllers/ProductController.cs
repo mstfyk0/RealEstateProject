@@ -1,16 +1,10 @@
 
+using Application.Interfaces;
+using Domain.RequestParameters;
 using Microsoft.AspNetCore.Mvc;
-using Entities.Models;
-using Repositories;
-using Repositories.Contracts;
-using System.Security.Cryptography;
-using Services.Contracts;
-using Entities.RequestParameters;
-using StoreApp.Models;
-using AutoMapper.Execution;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+using RealEstateApp.Models;
 
-namespace StoreApp.Controllers
+namespace Controllers
 {
     public class ProductController : Controller
     {
@@ -51,7 +45,7 @@ namespace StoreApp.Controllers
 
             var model= _manager.ProductService.GetOneProduct(id,false);
 
-            ViewData["Title"]=model.ProductName;
+            ViewData["Title"]=model.title;
             return View(model);
         }
             

@@ -1,9 +1,10 @@
-using Entities.Models;
+using Domain.Models;
 
-namespace Services.Contracts
+
+namespace Application.Interfaces
 {
     public interface IProductFeatureGroupServices
     {
-        IEnumerable<ProductFeatureGroup> GetAllCategories(bool trackChanges);
+        IEnumerable<ProductFeatureGroup> GetAllProductFeatureGroup(bool trackChanges);
     }
 }

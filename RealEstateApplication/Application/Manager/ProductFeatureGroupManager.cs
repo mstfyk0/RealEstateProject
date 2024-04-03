@@ -1,8 +1,7 @@
-using Entities.Models;
-using Repositories.Contracts;
-using Services.Contracts;
+using Application.Interfaces;
+using Domain.Models;
 
-namespace Services
+namespace Application.Manager
 {
     
     public class ProductFeatureGroupManager : IProductFeatureGroupServices
@@ -14,8 +13,7 @@ namespace Services
         {
             _manager = manager;
         }
-
-        public IEnumerable<ProductFeatureGroup> GetAllCategories(bool trackChanges)
+        public IEnumerable<ProductFeatureGroup> GetAllProductFeatureGroup(bool trackChanges)
         {
             return _manager.ProductFeatureGroup.FindAll(trackChanges);
         }

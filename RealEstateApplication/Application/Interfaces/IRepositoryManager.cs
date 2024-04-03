@@ -1,9 +1,8 @@
-namespace Repositories.Contracts
+namespace Application.Interfaces
 {
     public interface IRepositoryManager
     {
         IProductRepository Product { get; }
-
         IProductFeatureGroupRepository ProductFeatureGroup { get; }
     }
 }

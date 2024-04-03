@@ -1,7 +1,7 @@
-using System.Linq.Expressions;
-using Entities.Models;
 
-namespace StoreApp.Models
+using Domain.Models;
+
+namespace RealEstateApp.Models
 {
     public class ProductListViewModel
     {

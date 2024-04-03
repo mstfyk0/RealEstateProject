@@ -1,4 +1,4 @@
-﻿namespace C:\Users\mstyg\source\repos\RealEstateApplication\RealEstateApplication\Entities\Models\AuditableBaseEntity.cs
+﻿namespace Domain.Models
 {
     public abstract class AuditableBaseEntity
     {

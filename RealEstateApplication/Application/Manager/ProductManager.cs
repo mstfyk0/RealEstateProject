@@ -1,10 +1,9 @@
+using Application.Interfaces;
 using AutoMapper;
-using Entities.Models;
-using Entities.RequestParameters;
-using Repositories.Contracts;
-using Services.Contracts;
+using Domain.Models;
+using Domain.RequestParameters;
 
-namespace Services
+namespace Application.Manager   
 {
     public class ProductManager : IProductService
     {
@@ -27,13 +26,6 @@ namespace Services
             return _manager.Product.GetAllProductsWithDetails(p);
         }
 
-        public IEnumerable<Product> GetLastestProduct(int n, bool trackChnages)
-        {
-            return _manager.Product.FindAll(trackChnages)
-            .OrderByDescending(prd => prd.id)
-            .Take(n);
-        }
-
         public Product? GetOneProduct(int id, bool trackChnages)
         {
 
@@ -45,12 +37,6 @@ namespace Services
 
             }
             return product;
-        }
-
-        public IEnumerable<Product> GetShowCaseProducts(bool trackChange)
-        {
-           var product = _manager.Product.GetShowCaseProducts(trackChange);
-           return product;
         }
     }
 }

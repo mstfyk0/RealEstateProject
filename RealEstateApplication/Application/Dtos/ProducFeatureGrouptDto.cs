@@ -1,6 +1,8 @@
-﻿using Entities.Models;
+﻿
 
-namespace Entities.Dtos
+using Domain.Models;
+
+namespace Application.Dtos
 {
     public record ProducFeatureGrouptDto
     {

@@ -1,6 +1,5 @@
-﻿using Entities.Models;
-
-namespace Entities.Dtos
+﻿
+namespace Application.Dtos
 {
     public record ProducFeaturetDto
     {

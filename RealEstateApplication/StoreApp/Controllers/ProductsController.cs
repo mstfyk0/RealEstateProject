@@ -1,7 +1,7 @@
+using Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Services.Contracts;
 
-namespace Presentation.Controllers
+namespace RealEstateApp.Presentation.Controllers
 {
     
 [Route("api/products")]

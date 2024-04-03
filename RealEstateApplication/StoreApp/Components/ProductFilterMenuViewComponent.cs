@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace StoreApp.Components
+namespace Components
 {
     public class ProductFilterMenuViewComponent : ViewComponent
     {

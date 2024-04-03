@@ -6,7 +6,7 @@
 
     <div class="card" style="width: 18rem;">
         <div class="card-header text-center">
-            @Model.ProductName
+            @Model.title
 
         </div>
 
@@ -16,26 +16,26 @@
 
             <div class="card-text">
                 <div class="text-danger text-center lead p-2 rounded">
-                    @Model?.Price.ToString("C2")
+                    @Model?.price.ToString("C2")
 
                 </div>
 
 
             </div>
             @* <h5 class="card-title"></h5> *@
-            <p class="card-text">@Model?.Summary</p>
+            <p class="card-text">@Model?.description</p>
 
             <div class="d-flex justify-content-center">
 
                 <div class=" btn btn-group">
 
-                    <a asp-action="Get" asp-controller="Product" asp-route-id="@Model?.ProductId"
+                    <a asp-action="Get" asp-controller="Product" asp-route-id="@Model?.id"
                         class="btn btn-outline-secondary rounded-2">
                         <i class="fa-solid fa-arrow-right"></i>
                          </a>
 
-                    <form id="@Model?.ProductId" asp-page="/card" method="post">
-                        <input type="hidden" asp-for="ProductId" />
+                    <form id="@Model?.id" asp-page="/card" method="post">
+                        <input type="hidden" asp-for="id" />
 
                         @* <input type="hidden" name="returnUrl" value="/Product/Get/@Model.ProductId" /> *@
                         <input type="hidden" name="returnUrl"

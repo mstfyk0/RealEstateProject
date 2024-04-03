@@ -1,4 +1,4 @@
-namespace StoreApp.Models
+namespace RealEstateApp.Models
 {
     public class Pagination
     {

@@ -1,6 +1,6 @@
-using Services.Contracts;
+using Application.Interfaces;
 
-namespace Services
+namespace Application.Manager
 {
     public class ServiceManager : IServiceManager
     {
