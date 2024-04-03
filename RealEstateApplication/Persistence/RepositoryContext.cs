@@ -7,7 +7,7 @@ namespace Persistence
      public class RepositoryContext : DbContext
     {
         public DbSet<Product> Products { get; set; }
-        public DbSet<ProductFeatureGroup> Product { get; set; }
+        public DbSet<ProductFeatureGroup> ProductFeature { get; set; }
 
         public RepositoryContext(DbContextOptions<RepositoryContext> options) : base(options)
         {
@@ -17,9 +17,6 @@ namespace Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            // modelBuilder.ApplyConfiguration(new ProductConfig());
-            // modelBuilder.ApplyConfiguration(new CategoryConfig());
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
