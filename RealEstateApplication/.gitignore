@@ -23,6 +23,7 @@ _UpgradeReport_Files/
 # Directories #
 ###############
 bin/
+.vs/
 obj/
 TestResults/
 ###################
@@ -73,4 +74,3 @@ _[Ss]cripts
 *.nupkg
 *.ncrunchsolution
 *.dot[Cc]over
-.vs/
