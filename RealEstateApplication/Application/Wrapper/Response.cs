@@ -1,5 +1,5 @@
 ﻿using Domain.Common.Enums;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace Domain.Common.Wrapper
 {
@@ -10,9 +10,9 @@ namespace Domain.Common.Wrapper
     }
     public class Response<T>
     {
-        public Response()
-        {
-        }
+        //public Response()
+        //{
+        //}
         public Response(T data, string message = null)
         {
             apiResultType = ApiResultEnum.Success;
@@ -24,7 +24,8 @@ namespace Domain.Common.Wrapper
             apiResultType = _apiResultType;
             this.message = message;
         }
-        [JsonIgnore]
+
+        //[JsonIgnore]
         public int statusCode { get; set; }
         public ApiResultEnum apiResultType { get; set; } = ApiResultEnum.Unspecified;
         public string message { get; set; }

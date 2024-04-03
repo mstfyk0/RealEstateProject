@@ -12,16 +12,16 @@ namespace Application
 {
     public class ProductFeatureManager : IProductFeatureManager
     {
-        private readonly IProductFeatureRepositoryAsync _entityRepositoryAsync;
+        private readonly IProductFeatureRepositoryAsync _productFeatureRepositoryAsync;
         protected IMapper _mapper;
-        public ProductFeatureManager(IProductFeatureRepositoryAsync entityRepositoryAsync, IMapper mapper)
+        public ProductFeatureManager(IProductFeatureRepositoryAsync productFeatureRepositoryAsync, IMapper mapper)
         {
-            _entityRepositoryAsync = entityRepositoryAsync;
+            _productFeatureRepositoryAsync = productFeatureRepositoryAsync;
             _mapper = mapper;
         }
         public async Task<Response<IEnumerable<ProductFeatureDto>>> GetList()
         {
-            var entity = await _entityRepositoryAsync.GetAllAsync();
+            var entity = await _productFeatureRepositoryAsync.GetAllAsync();
 
             if (entity is null)
                 throw new ApiException(ProductFeatureException.ProductFeatureNotFound);

@@ -16,13 +16,6 @@ namespace Persistence.Context
         public DbSet<ProductFeatureGroup> ProductFeatureGroups { get; set; }
         public DbSet<Product> Products { get; set; }
 
-       
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.
-        //}
-
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
             return base.SaveChangesAsync(cancellationToken);
@@ -241,23 +234,28 @@ namespace Persistence.Context
 
             modelBuilder.Entity<Product>()
                .HasOne(c => c.productPropertyType)
-               .WithMany(d => d.productPropertyType);
+               .WithMany(d => d.productPropertyType)
+               .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Product>()
                .HasOne(c => c.productFurnitureCondition )
-               .WithMany(d => d.productFurnitureCondition);
+               .WithMany(d => d.productFurnitureCondition)
+               .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Product>()
               .HasOne(c => c.productNumberOfRooms )
-              .WithMany(d => d.productNumberOfRooms );
+              .WithMany(d => d.productNumberOfRooms )
+              .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Product>()
               .HasOne(c => c.productFloorLevel )
-              .WithMany(d => d. productFloorLevel);
+              .WithMany(d => d. productFloorLevel)
+              .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Product>()
               .HasOne(c => c.productBuildingAge)
-              .WithMany(d => d.productBuildingAge );
+              .WithMany(d => d.productBuildingAge )
+              .OnDelete(DeleteBehavior.Restrict);
         }
 
     }
