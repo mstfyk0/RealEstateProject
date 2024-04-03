@@ -6,9 +6,9 @@ namespace Persistence.Repositories
 {
     public class GeneralRepositoryAsync<T> : IGeneralRepositoryAsync<T> where T : class
     {
-        private readonly ApplicationDbContext _dbContext;
+        private readonly ProductDbContext _dbContext;
 
-        public GeneralRepositoryAsync(ApplicationDbContext dbContext)
+        public GeneralRepositoryAsync(ProductDbContext dbContext)
         {
             _dbContext = dbContext;
         }

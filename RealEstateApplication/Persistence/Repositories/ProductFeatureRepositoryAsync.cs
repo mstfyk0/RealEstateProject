@@ -11,7 +11,7 @@ namespace Persistence.Repositories
     {
         private readonly DbSet<ProductFeature> _entity;
 
-        public ProductFeatureRepositoryAsync(ApplicationDbContext dbContext) : base(dbContext)
+        public ProductFeatureRepositoryAsync(ProductDbContext dbContext) : base(dbContext)
         {
             _entity = dbContext.Set<ProductFeature>();
         }

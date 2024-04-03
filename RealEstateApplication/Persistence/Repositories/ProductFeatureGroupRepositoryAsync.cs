@@ -9,7 +9,7 @@ namespace Persistence.Repositories
     {
         private readonly DbSet<ProductFeatureGroup> _productFeatureGroup;
 
-        public ProductFeatureGroupRepositoryAsync(ApplicationDbContext dbContext) : base(dbContext)
+        public ProductFeatureGroupRepositoryAsync(ProductDbContext dbContext) : base(dbContext)
         {
             _productFeatureGroup = dbContext.Set<ProductFeatureGroup>();
         }

@@ -4,16 +4,14 @@ using Domain.Common.ApplicationSettings;
 using Domain.Common.BaseLimits;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
-using Microsoft.EntityFrameworkCore;
-using NpgsqlTypes;
 using Persistence.Context;
 using Persistence.Repositories;
-using Serilog.Sinks.PostgreSQL;
 using Serilog;
 using System.Net;
 using System.Reflection;
 using Serilog.Core;
 using System.Threading.RateLimiting;
+using Microsoft.EntityFrameworkCore;
 
 namespace RealEstateApplication.Extensions
 {
@@ -31,10 +29,10 @@ namespace RealEstateApplication.Extensions
         {
             var appOptions = configuration.GetSection(nameof(AppOptions)).Get<AppOptions>();
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseNpgsql(
+            services.AddDbContext<ProductDbContext>(options =>
+                options.UseSqlServer(
                     appOptions?.ConnectionString ?? "",
-                    b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName))
+                    b => b.MigrationsAssembly(typeof(ProductDbContext).Assembly.FullName))
             );
 
             services.AddTransient(typeof(IGeneralRepositoryAsync<>), typeof(GeneralRepositoryAsync<>));
@@ -61,26 +59,13 @@ namespace RealEstateApplication.Extensions
                 options.SuppressModelStateInvalidFilter = true;
             });
 
-            Logger log = new LoggerConfiguration()
-              .WriteTo.PostgreSQL(connectionString: appOptions?.ConnectionString,
-                  tableName: "Logs",
-                  needAutoCreateTable: true,
-                  columnOptions: new Dictionary<string, ColumnWriterBase>
-                  {
-                        {"message", new RenderedMessageColumnWriter(NpgsqlDbType.Text)},
-                        {"message_template", new MessageTemplateColumnWriter(NpgsqlDbType.Text)},
-                        {"level", new LevelColumnWriter(true , NpgsqlDbType.Varchar)},
-                        {"time_stamp", new TimestampColumnWriter(NpgsqlDbType.Timestamp)},
-                        {"exception", new ExceptionColumnWriter(NpgsqlDbType.Text)},
-                        {"log_event", new LogEventSerializedColumnWriter(NpgsqlDbType.Json)},
-                        //{"request", new RequestColumnWriter()},
-                        //{"ip_address", new IpAddressColumnWriter()}
-                  })
-              .Enrich.FromLogContext()
-              .MinimumLevel.Warning()
-              .CreateLogger();
+            
+            Logger logger = new LoggerConfiguration()
+                .MinimumLevel.Information()
+                .WriteTo.MSSqlServer(appOptions?.ConnectionString, "Logs")
+                .CreateLogger();
 
-            configureHostBuilder.UseSerilog(log);
+            configureHostBuilder.UseSerilog(logger);
 
             services.AddRateLimiter(options =>
             {

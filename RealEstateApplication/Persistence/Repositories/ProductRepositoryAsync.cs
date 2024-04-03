@@ -1,12 +1,7 @@
 ﻿using Application.Interfaces;
 using Application.Queries;
 using Domain;
-using Domain.Common.ApplicationSettings;
-using Microsoft.AspNetCore.Builder.Extensions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Persistence.Context;
 
 
@@ -16,7 +11,7 @@ namespace Persistence.Repositories
     {
         private readonly DbSet<Product> _product;
 
-        public ProductRepositoryAsync(ApplicationDbContext dbContext) : base(dbContext)
+        public ProductRepositoryAsync(ProductDbContext dbContext) : base(dbContext)
         {
             _product = dbContext.Set<Product>();
         }
@@ -142,27 +137,4 @@ namespace Persistence.Repositories
         }
 
     }
-
-
-    public static class ServiceRegistration
-    {
-        public static void AddPersistance(this IServiceCollection services, IConfiguration configuration, IHostEnvironment hostEnvironment)
-        {
-            var appOptions = configuration.GetSection(nameof(AppOptions)).Get<AppOptions>();
-
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseNpgsql(
-                    appOptions?.ConnectionString ?? "",
-                    b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName))
-            );
-
-            services.AddTransient(typeof(IGeneralRepositoryAsync<>), typeof(GeneralRepositoryAsync<>));
-            services.AddTransient<IProductFeatureRepositoryAsync, ProductFeatureRepositoryAsync>();
-            services.AddTransient<IProductFeatureGroupRepositoryAsync, ProductFeatureGroupRepositoryAsync>();
-            services.AddTransient<IProductRepositoryAsync, ProductRepositoryAsync>();
-
-        }
-    }
-
-
 }
