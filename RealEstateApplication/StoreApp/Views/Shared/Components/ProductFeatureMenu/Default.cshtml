@@ -5,10 +5,8 @@
         @foreach (var productFeature in Model)
         {
             <li class="list-group-item">
-                <input  type="checkbox" class="form-check-input" role="switch"  asp-route-categoryid="@productFeature.id" />
-                <label> </label>
+                <input type="checkbox" id="checkbox @productFeature.id"/>
                 @productFeature.value
-
             </li>
         }
 

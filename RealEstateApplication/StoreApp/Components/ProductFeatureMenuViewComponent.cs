@@ -1,6 +1,5 @@
 ﻿using Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-
 namespace Components
 {
     public class ProductFeatureMenuViewComponent : ViewComponent
@@ -16,7 +15,9 @@ namespace Components
             var productFeatureGroup = _manager.ProductFeatureGroupServices.GetOneProductFeatureGroup(id,false);
             var model = _manager.ProductFeatureServices.GetListProductFeature(productFeatureGroup.id, false);
 
+
             return View(model);
+            //return View(model);
 
         }
     }

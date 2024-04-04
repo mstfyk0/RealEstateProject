@@ -20,6 +20,7 @@ namespace Controllers
         public IActionResult Index(ProductRequestParameters p )
         {
             var products= _manager.ProductService.GetAllProductsWithDetails(p);
+
             var pagination  = new Pagination() {
                 CurrentPage=p.PageNumber,
                 ItemsPerPage=p.PageSize,

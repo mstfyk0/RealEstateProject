@@ -27,7 +27,7 @@ namespace Persistence.Repositories
             //     .Where(prd => prd.CategoryId.Equals(p.CategoryId));
             return _context
                 .Products
-                .FilterByProductId(p.buildingAgeId,p.floorLevelId,p.furnitureConditionId,p.numberOfRoomsId,p.propertyTypeId,p.totalSquareFootage)
+                .FilterByProductId(p.featureId)
                 .FilteredBySearchTerm(p.SearchTerm)
                 .FilteredByPrice(p.MinPrice, p.MaxPrice, p.IsValidPrice)
                 .ToPaginate(p.PageNumber, p.PageSize)

@@ -1,31 +1,25 @@
 using Domain.Models;
+using Microsoft.IdentityModel.Tokens;
 namespace Persistence.Extensions
 {
     public static class ProductRepositoryExtension
     {
         public static IQueryable<Product> FilterByProductId(this IQueryable<Product> products
-         , List<short> buildingAgeId, List<short> floorLevelId, List<short> furnitureConditionId, List<short> numberOfRoomsId, List<short> propertyTypeId ,int? totalSquareFootage)
+         , List<short> featureId )
         {
-            if (buildingAgeId is null 
-                && floorLevelId is null
-                && furnitureConditionId is null
-                && numberOfRoomsId is null
-                && propertyTypeId is null
-                && totalSquareFootage is null
-                )
+            if (featureId.IsNullOrEmpty())
             {
                 return products;
 
             }
             else
             {
-                return products.Where(prd => propertyTypeId.Contains(prd.propertyTypeId) 
-                    || numberOfRoomsId.Contains(prd.numberOfRoomsId)
-                    || furnitureConditionId.Contains(prd.furnitureConditionId)
-                    || floorLevelId.Contains(prd.floorLevelId)
-                    || buildingAgeId.Contains(prd.buildingAgeId)
-                    || totalSquareFootage >= prd.totalSquareFootage
-                    ) ;
+                return products.Where(prd => featureId.Contains(prd.propertyTypeId) 
+                    || featureId.Contains(prd.numberOfRoomsId)
+                    || featureId.Contains(prd.furnitureConditionId)
+                    || featureId.Contains(prd.floorLevelId)
+                    || featureId.Contains(prd.buildingAgeId)
+                    );
 
             }
         }

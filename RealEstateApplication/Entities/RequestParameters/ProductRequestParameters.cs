@@ -10,11 +10,7 @@ namespace Domain.RequestParameters
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
 
-        public List<short> buildingAgeId { get; set; }
-        public List<short> floorLevelId { get; set; }
-        public List<short> furnitureConditionId { get; set; }
-        public List<short> numberOfRoomsId { get; set; }
-        public List<short> propertyTypeId { get; set; }
+        public List<short> featureId { get; set; }
         public int? totalSquareFootage { get; set; }    
 
         public ProductRequestParameters() :this (1,6)
