@@ -4,6 +4,7 @@ namespace Application.Interfaces
     {
         IProductService ProductService { get; }
         IProductFeatureGroupServices ProductFeatureGroupServices { get; }
-        
+        IProductFeatureServices ProductFeatureServices { get; }
+
     }
 }

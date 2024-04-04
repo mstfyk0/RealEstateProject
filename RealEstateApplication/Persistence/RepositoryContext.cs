@@ -7,7 +7,8 @@ namespace Persistence
      public class RepositoryContext : DbContext
     {
         public DbSet<Product> Products { get; set; }
-        public DbSet<ProductFeatureGroup> ProductFeature { get; set; }
+        public DbSet<ProductFeature> ProductFeature { get; set; }
+        public DbSet<ProductFeatureGroup> ProductFeatureGroup { get; set; }
 
         public RepositoryContext(DbContextOptions<RepositoryContext> options) : base(options)
         {

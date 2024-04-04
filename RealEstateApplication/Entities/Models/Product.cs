@@ -13,6 +13,7 @@ namespace Domain.Models
         public decimal price { get; set; }
         public int totalSquareFootage { get; set; }
         public String? ImageUrl { get; set; } = String.Empty;
-
+        public bool ShowCase { get; set; }
+        public ProductFeature? productFeature { get; set; } 
     }
 }

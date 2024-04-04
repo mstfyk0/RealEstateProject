@@ -26,6 +26,7 @@ namespace RealEstateApp.Extensions
         {
             services.AddScoped<IRepositoryManager, RepositoryManager>();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductFeatureRepository, ProductFeatureRepository>();
             services.AddScoped<IProductFeatureGroupRepository, ProductFeatureGroupRepository>();
         
         }
@@ -36,6 +37,7 @@ namespace RealEstateApp.Extensions
 
             services.AddScoped<IServiceManager, ServiceManager>();
             services.AddScoped<IProductService, ProductManager>();
+            services.AddScoped<IProductFeatureServices, ProductFeatureManager>();
             services.AddScoped<IProductFeatureGroupServices, ProductFeatureGroupManager>();
         }
 

@@ -1,0 +1,17 @@
+@model IEnumerable<ProductFeature>
+
+<div class="my-4">
+    <ul class="list-group">
+        @foreach (var productFeature in Model)
+        {
+            <li class="list-group-item">
+                <input  type="checkbox" class="form-check-input" role="switch"  asp-route-categoryid="@productFeature.id" />
+                <label> </label>
+                @productFeature.value
+
+            </li>
+        }
+
+    </ul>
+
+</div>

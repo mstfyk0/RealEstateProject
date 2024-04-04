@@ -4,5 +4,7 @@ namespace Application.Interfaces
     {
         IProductRepository Product { get; }
         IProductFeatureGroupRepository ProductFeatureGroup { get; }
+        IProductFeatureRepository ProductFeature { get; }
+
     }
 }

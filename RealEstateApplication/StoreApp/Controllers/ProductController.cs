@@ -19,11 +19,7 @@ namespace Controllers
 
         public IActionResult Index(ProductRequestParameters p )
         {
-            // var context = new RepositoryContext(
-            //         new DbContextOptionsBuilder<RepositoryContext>().UseSqlite(" Data Source = C:\\Users\\mstyg\\source\\repos\\ProductDb.db")
-            //         .Options);
-            // var model = _manager.ProductService.GetAllProductsWithDetails(p);
-            var products=_manager.ProductService.GetAllProductsWithDetails(p);
+            var products= _manager.ProductService.GetAllProductsWithDetails(p);
             var pagination  = new Pagination() {
                 CurrentPage=p.PageNumber,
                 ItemsPerPage=p.PageSize,
@@ -33,12 +29,9 @@ namespace Controllers
             return View(new ProductListViewModel () {
                 Products=products,
                 Pagination=pagination
-
-
             });
 
         }
-
 
         public IActionResult Get([FromRoute(Name ="id") ] int id)
         {
@@ -48,10 +41,6 @@ namespace Controllers
             ViewData["Title"]=model.title;
             return View(model);
         }
-            
-
-        // try            // {            //     // Product product = _context.Products.First(p => p.ProductId.Equals(id));            //     // return View(product);            // }            // catch (System.Exception)            // {,// }
-
     }
 
 }

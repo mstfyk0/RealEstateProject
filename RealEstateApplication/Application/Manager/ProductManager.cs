@@ -25,6 +25,11 @@ namespace Application.Manager
         {
             return _manager.Product.GetAllProductsWithDetails(p);
         }
+        public IEnumerable<Product> GetShowCaseProducts(bool trackChange)
+        {
+            var product = _manager.Product.GetShowCaseProducts(trackChange);
+            return product;
+        }
 
         public Product? GetOneProduct(int id, bool trackChnages)
         {

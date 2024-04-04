@@ -13,7 +13,6 @@ namespace Persistence.Repositories
 
 
         }
-
         public IQueryable<Product> GetAllProducts(bool trackChange) => FindAll(trackChange);
 
         public IQueryable<Product> GetAllProductsWithDetails(ProductRequestParameters p)
@@ -28,12 +27,18 @@ namespace Persistence.Repositories
             //     .Where(prd => prd.CategoryId.Equals(p.CategoryId));
             return _context
                 .Products
-                .FilterByProductId(p.buildingAgeId,p.floorLevelId,p.furnitureConditionId,p.numberOfRoomsId,p.propertyTypeId)
+                .FilterByProductId(p.buildingAgeId,p.floorLevelId,p.furnitureConditionId,p.numberOfRoomsId,p.propertyTypeId,p.totalSquareFootage)
                 .FilteredBySearchTerm(p.SearchTerm)
                 .FilteredByPrice(p.MinPrice, p.MaxPrice, p.IsValidPrice)
                 .ToPaginate(p.PageNumber, p.PageSize)
                 ;
         }
+        public IQueryable<Product> GetShowCaseProducts(bool trackChange)
+        {
+            return FindAll(trackChange)
+            .Where(p => p.ShowCase.Equals(true));
+        }
+
 
         public Product? GetOneProduct(int id, bool trackChanges)
         {

@@ -3,7 +3,7 @@ using Domain.Models;
 
 namespace Application.Manager
 {
-    
+
     public class ProductFeatureGroupManager : IProductFeatureGroupServices
     {
 
@@ -16,6 +16,12 @@ namespace Application.Manager
         public IEnumerable<ProductFeatureGroup> GetAllProductFeatureGroup(bool trackChanges)
         {
             return _manager.ProductFeatureGroup.FindAll(trackChanges);
+        }
+
+        public ProductFeatureGroup GetOneProductFeatureGroup(short id, bool trackChanges)
+        {
+            return _manager.ProductFeatureGroup.FindByCondition(group => group.id.Equals(id) , false);
+
         }
     }
 }

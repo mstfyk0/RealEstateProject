@@ -23,7 +23,6 @@ var app = builder.Build();
 
 
 app.UseStaticFiles();
-app.UseSession();
 app.UseHttpsRedirection();
 app.UseRouting();
 

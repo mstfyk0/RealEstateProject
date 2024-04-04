@@ -14,11 +14,6 @@ namespace Application.Dtos
         public string description { get; init; }
         public decimal price { get; init; }
         public int totalSquareFootage { get; init; }
-        public ProductFeatureGroup propertyType { get; init; }
-        public ProductFeatureGroup furnitureCondition { get; init; }
-        public ProductFeatureGroup numberOfRooms { get; init; }
-        public ProductFeatureGroup floorLevel { get; init; }
-        public ProductFeatureGroup buildingAge { get; init; }
         public String? ImageUrl { get; set; } =String.Empty;
     }
 

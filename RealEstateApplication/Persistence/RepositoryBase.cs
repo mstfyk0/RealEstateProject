@@ -27,10 +27,18 @@ namespace Persistence
 
         public T? FindByCondition(Expression<Func<T, bool>> expression, bool trackChange)
         {
-            return trackChange ? _context.Set<T>().Where(expression).SingleOrDefault()
-            : _context.Set<T>().Where(expression).AsNoTracking().SingleOrDefault()
-            ;
+
+            return trackChange ? _context.Set<T>().Where(expression).FirstOrDefault()
+            : _context.Set<T>().Where(expression).AsNoTracking().FirstOrDefault() ;
         }
+
+        public IQueryable<T>? FindByList(Expression<Func<T, bool>> expression, bool trackChange)
+        {
+
+            return trackChange ? _context.Set<T>().Where(expression)
+            : _context.Set<T>().Where(expression).AsNoTracking();
+        }
+
 
         public void Remove(T entity)
         {

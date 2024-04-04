@@ -9,8 +9,7 @@ namespace Persistence.Config
         public void Configure(EntityTypeBuilder<ProductFeature> builder)
         {
             builder.HasKey(c => c.id);
-            builder.Property(c => c.value).IsRequired();
-            builder.Property(c => c.productFeatureGroupId).IsRequired();
+            builder.Property(c => c.value);
 
             builder.HasData(
                 new ProductFeature() { id = 1, value = "Satılık" , productFeatureGroupId=1 },

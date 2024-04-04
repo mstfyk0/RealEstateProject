@@ -15,6 +15,7 @@ namespace Domain.RequestParameters
         public List<short> furnitureConditionId { get; set; }
         public List<short> numberOfRoomsId { get; set; }
         public List<short> propertyTypeId { get; set; }
+        public int? totalSquareFootage { get; set; }    
 
         public ProductRequestParameters() :this (1,6)
         {

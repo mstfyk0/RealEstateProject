@@ -1,4 +1,4 @@
-using Application.Interfaces;
+﻿using Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Components
@@ -14,6 +14,9 @@ namespace Components
         public IViewComponentResult Invoke()
         {
             var categories = _manager.ProductFeatureGroupServices.GetAllProductFeatureGroup(false);
+
+
+
             return View(categories);
 
         }

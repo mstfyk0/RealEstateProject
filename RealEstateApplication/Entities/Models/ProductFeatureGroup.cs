@@ -4,6 +4,6 @@
     {
         public short id { get; set; }
         public string? value { get; set; }
-        public ICollection<ProductFeatureGroup> productFeature { get; set; }
+        public ICollection<ProductFeature> productFeatures { get; set;}
     }
 }

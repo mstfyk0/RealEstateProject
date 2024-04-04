@@ -8,7 +8,7 @@ namespace Application.Dtos
     {
         public short id { get; init; }
         public string? value { get; init; }
-        public ICollection<ProductFeatureGroup> productFeatures { get; init; }
+        public ICollection<ProductFeatureGroup> productFeaturesGroup { get; init; }
 
     }
 

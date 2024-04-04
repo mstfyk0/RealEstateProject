@@ -1,15 +1,15 @@
-@model IEnumerable<ProductFeatureGroup>
+@model IEnumerable<ProductFeature>
 
 <div class="text-center my-3">
-<h6 class="display-6">Product Feature Group </h6>
+<h6 class="display-6">Product Feature </h6>
 
 </div>
 
 <ul class="list-group my-3">
 
-    @foreach (var productFeatureGroup in Model)
+    @foreach (var productFeature in Model)
     {
-        <li class="list-group-item"> @productFeatureGroup.productFeature.FirstOrDefault()</li>
+        <li class="list-group-item"> @productFeature.value </li>
 
     }
 
